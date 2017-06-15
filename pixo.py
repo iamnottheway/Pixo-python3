@@ -1,7 +1,10 @@
 # pixel art editor
 
 from tkinter import *
+from color_palette import *
 
+
+BG_COLOR = "#24272b"
 # icon author creds
 # <div>Icons made by <a href="http://www.flaticon.com/authors/dinosoftlabs" title="DinosoftLabs">DinosoftLabs</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 class Pixo():
@@ -13,9 +16,9 @@ class Pixo():
 		self.master.title("Pixo")
 		self.master.geometry("{0}x{1}+400+200".format(self.size[0],self.size[1]))
 		self.master.resizable(0,0)
-		self.master.config(bg="#333")
+		self.master.config(bg=BG_COLOR)
 
-		self.block_paint_color = "#000"
+		self.block_paint_color = "red"
 
 		# color picker frame
 		self.color_picker_frame = Canvas(self.master,width = self.size[0]-20,height = 30,bg = "#333",highlightthickness=0)
@@ -26,16 +29,15 @@ class Pixo():
 		n_cols = 0
 		x_pos = 0
 		y_pos = 0
-		for x in self.colors:
-			self.color_picker_frame.create_rectangle(x_pos,y_pos,x_pos+20,y_pos+20,fill = x,tags = "{0}".format(x))
-			x_pos += 20
-			if x_pos > 500:
-				y_pos += 20
-				x_pos = 0
-		#self.color_pick_btn = Button(self.color_picker_frame,width = 1,height = 1,bd = 0)
-		#self.color_pick_btn.grid(row = 1,column = 10)
+#		for x in self.colors:
+#			self.color_picker_frame.create_rectangle(x_pos,y_pos,x_pos+20,y_pos+20,fill = x,tags = "{0}".format(x))
+#			if x_pos > 500:
+#				y_pos += 20
+#				x_pos = 0
+		self.color_pick_btn = Button(self.color_picker_frame,width = 1,height = 1,bd = 0,command = self.pick_color)
+		self.color_pick_btn.grid(row = 1,column = 10)
 
-		self.color_picker_frame.tag_bind("current",'<Button-1>',self.get_color)
+		#self.color_picker_frame.tag_bind("current",'<Button-1>',self.get_color)
 		# draw canvas
 		self.draw_canvas = Canvas(self.master,width = self.size[0]-20,height=self.size[1]-90,bg="#fff")
 		self.draw_canvas.grid(row = 1,column = 1,padx = 10,pady =10)
@@ -55,11 +57,17 @@ class Pixo():
 	def paint_block(self,*args):
 		self.draw_canvas.itemconfig(CURRENT,fill = self.block_paint_color)
 
-	def get_color(self,*args):
-		self.current_color =  self.color_picker_frame.itemcget("current","tags")
-		self.f_current_color = self.filter_colornames(self.current_color)[1:-1]
-		self.block_paint_color = self.f_current_color
-		#return self.f_current_color[1:-2]
+#	def get_color(self,*args):
+#		self.current_color =  self.color_picker_frame.itemcget("current","tags")
+#		self.f_current_color = self.filter_colornames(self.current_color)[1:-1]
+#		self.block_paint_color = self.f_current_color
+
+	def pick_color(self):
+		# get the selected color name from the canvas
+		self.color_picker = ColorPalette(self.master)
+		self.seletected_color = self.color_picker.get_color()
+		# update the previous color
+		self.block_paint_color = self.filter_colornames(self.seletected_color)[1:-1]
 
 	def filter_colornames(self,name):
 		self.f_name = ""
