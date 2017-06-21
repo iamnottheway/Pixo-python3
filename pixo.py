@@ -1,7 +1,7 @@
 # pixel art editor
 
 from tkinter import *
-from color_palette import *
+from color_palette import ColorPalette
 
 
 BG_COLOR = "#24272b"
@@ -18,7 +18,7 @@ class Pixo():
 		self.master.resizable(0,0)
 		self.master.config(bg=BG_COLOR)
 
-		self.block_paint_color = "red"
+		self.seletected_color = "#3a3"
 
 		# color picker frame
 		self.color_picker_frame = Canvas(self.master,width = self.size[0]-20,height = 30,bg = "#333",highlightthickness=0)
@@ -55,27 +55,16 @@ class Pixo():
 		self.draw_canvas.tag_bind("current",'<Button-1>',self.paint_block)
 
 	def paint_block(self,*args):
-		self.draw_canvas.itemconfig(CURRENT,fill = self.block_paint_color)
-
-#	def get_color(self,*args):
-#		self.current_color =  self.color_picker_frame.itemcget("current","tags")
-#		self.f_current_color = self.filter_colornames(self.current_color)[1:-1]
-#		self.block_paint_color = self.f_current_color
+		# fill the block when clicked on it
+		self.draw_canvas.itemconfig(CURRENT,fill = self.seletected_color)
 
 	def pick_color(self):
 		# get the selected color name from the canvas
 		self.color_picker = ColorPalette(self.master)
 		self.seletected_color = self.color_picker.get_color()
 		# update the previous color
-		self.block_paint_color = self.filter_colornames(self.seletected_color)[1:-1]
+		self.master.update()
 
-	def filter_colornames(self,name):
-		self.f_name = ""
-		for x in range(0,len(name)):
-			if name[x] == " ":
-				break 
-			self.f_name += name[x]
-		return self.f_name
 		
 
 

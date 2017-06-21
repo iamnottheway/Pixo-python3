@@ -1,4 +1,4 @@
-COLORS = ['black','snow', 'ghost white', 'white smoke', 'gainsboro', 'floral white', 'old lace',
+COLORS1 = ['black','snow', 'ghost white', 'white smoke', 'gainsboro', 'floral white', 'old lace',
     'linen', 'antique white', 'papaya whip', 'blanched almond', 'bisque', 'peach puff',
     'navajo white', 'lemon chiffon', 'mint cream', 'azure', 'alice blue', 'lavender',
     'lavender blush', 'misty rose', 'dark slate gray', 'dim gray', 'slate gray',
@@ -74,3 +74,26 @@ COLORS = ['black','snow', 'ghost white', 'white smoke', 'gainsboro', 'floral whi
     'gray75', 'gray76', 'gray77', 'gray78', 'gray79', 'gray80', 'gray81', 'gray82', 'gray83',
     'gray84', 'gray85', 'gray86', 'gray87', 'gray88', 'gray89', 'gray90', 'gray91', 'gray92',
     'gray93', 'gray94', 'gray95', 'gray97', 'gray98', 'gray99']
+
+COLORS = ["#ffffff","#ccbfbf","#dda4a4","#d86363","#d64444","#d62626","#dd2113","#f21504",\
+"#64dd3b","#4ed620","#74d653","#35a80f","#0fa82b","#127524","#51995e","#598962","#179e30",\
+"#066017","#176326","#34663d","#04280b","#f7ea5b","#efe03b","#efde23","#e8d50b","#c9b914",\
+"#14c97d","#07c173","#38bc85","#20c982","#1fc9b5","#0eceb7","#33b7a7","#03c6af","#0292c6","#0da4db",\
+"#0d66db","#0a4ea8","#053575","#2c5fa3","#5379aa","#4184db","#2677e0","#084593","#02295b",\
+"#13025b","#1a0b59","#231756","#30169e","#3a15d6","#12044f","#34034f",\
+"#1fc97d","#17c173","#32bc85","#2ac982","#1fb9b5","#ccceb7","#a3a7a7","#efc6af","#0bb2c6","#0cacdb",\
+"#dd66db","#ca4ea8","#b53575","#ac5fa3","#5a79aa","#8184db","#8687e0","#0ca59a","#022f5c",\
+"#e3025b","#fa0b59","#a31756","#b0169e","#ca15d6","#d2044f","#e4034f",\
+"#abffff","#acafbf","#bda4a4","#b86363","#f64444","#e62626","#da2a13","#bb1504",\
+"#ccdd3b","#ded620","#e4d653","#ffa80f","#efa82b","#1f7524","#81995e","#57f962","#a79e30",\
+"#a66017","#776326","#64663d","#c4280b","#b7ea5b","#ffe03b","#dfde23","#c8d50b","#b9b914",\
+
+"#73025b","#8a0b59","#a31756","#b0169e","#ca15d6","#d2044f","#3e034f",\
+"#ffe97d","#a7d173","#abc857","#bac982","#cfb9b5","#accdb7","#acedab","#eac6af","#0ab2b6","#ffacdb",\
+"#fd86db","#ea4ea8","#af3575","#bc5fa3","#4a79aa","#7184db","#7a87e0","#aca59a","#a22f5c",\
+"#e30c5c","#faab5a","#bab756","#dada9e","#da15d6","#f2044f","#f4034f",\
+"#acfcff","#acaabf","#cda4a4","#d86363","#c64444","#862626","#7a2a13","#8b1504",\
+"#dcdd3b","#ced620","#b4d653","#afa80f","#ffa82b","#ef7524","#d1995e","#c7f962","#b79e30",\
+"#b66017","#a76326","#c4663d","#d4280b","#e7ea5b","#e8e03b","#ffde23","#88d50b","#c9b914",\
+"#63b03b","#64f323","#c550ba","#afb914","#552ab3"
+]
