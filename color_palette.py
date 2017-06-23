@@ -30,7 +30,7 @@ from tkinter import *
 from colors import COLORS
 from MoveWindow import MovableWindow
 
-BG_COLOR = "#333"
+BG_COLOR = "#24272b"
 
 
 class FixedColorPalette():
@@ -90,7 +90,7 @@ class ColorPalette():
 		self.child_win.overrideredirect(1)
 		# default color
 		self.move_window_canvas = MovableWindow(self.child_win)
-		self.def_color = "#333"
+		self.def_color = "#555"
 		# color-palette canvas
 		self.ColorPaletteCanvas = Canvas(self.child_win,width = 210,height = 70,bg = 'white',cursor = 'tcross')
 		self.ColorPaletteCanvas.grid(row = 1,column=1,padx = 10,pady = 10)
@@ -108,7 +108,9 @@ class ColorPalette():
 				self.x_pos = 0
 		# current is a keyword. It points to the current object. Alternative: CURRENT
 		# gets the current clicked color from the palette
-		self.ColorPaletteCanvas.tag_bind("current",'<Button-1>',self.update_color)
+		# when any tile inside the canvas is clicked, update it's color with it's tag
+		# look in the self.update_color function
+		self.ColorPaletteCanvas.tag_bind("current",'<Button-1>',self.get_color)
 
 		self.col_can = Canvas(self.child_win,width = 30,height = 30,bg = self.def_color )
 		self.col_can.grid(row = 2,column=1,padx = 100,pady = 10,sticky = W)
@@ -116,19 +118,16 @@ class ColorPalette():
 		self.col_lab.grid(row = 2,column=1,padx = 50,pady = 3,sticky = E)
 
 
-	def update_color(self,*args):
-		#updates the old color value and the display canvas
+	def get_color(self,*args):
+		#updates the old color value with the new one
+		# gets the clicked tile tag name and updates the label and col_can
+		# each color tile is taged with its hex code, so it's easy to update the tiles
 		self.current_color = self.ColorPaletteCanvas.itemcget("current","tags")
 		self.col_can.config(bg = self.current_color[1:8])
 		self.col_lab.config(text=self.current_color[1:8])
-		self.def_color = self.current_color[1:8]
-		#updates the window
 		self.child_win.update()
+		self.def_color = self.current_color[0:8]
 		
-		
-
-	def get_color(self,*args):
-		# use this function to get the current color
-		print(self.def_color)
-		return self.def_color
-		
+	def return_color(self,*args):
+		# use this function to get the updated color
+		return self.def_color		
